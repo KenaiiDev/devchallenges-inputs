@@ -1,0 +1,252 @@
+@charset "UTF-8";
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #393939;
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* Opcional */
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+            animation: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+}
+
+.app{
+    width: 95%;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.app__title{
+    font-size: 2.4rem;
+    margin: .5em 0;
+}
+
+.inputs-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 1.5em 0;
+}
+
+.inputs-container__title{
+    font-size: 1rem;
+    margin: .5em 0;
+}
+
+.inputs-container__div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.input-control{
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+}
+
+.inputs-container__label{
+    margin-top: .5em;
+    font-size: 1rem;
+    order: 3;
+}
+
+.inputs-container__input{
+    padding: 1em 1.5rem;
+    border: #393939 1px solid;
+    border-radius: 10px;
+    order: 2;
+}
+
+.inputs-container__input:hover, .inputs-container__input-hover{
+    outline: none;
+    border-color: #000;
+    color: #000;
+}
+
+.inputs-container__input:hover + .inputs-container__helper-text{
+    color: #000;
+}
+
+.inputs-container__input:hover + .inputs-container__helper-text + .inputs-container__label{
+    color: #000;
+}
+
+.inputs-container__input:focus, .inputs-container__input-focus{
+  outline: none;
+  border-color: #77f;
+  color: #77f;
+}
+
+.inputs-container__input:focus + .inputs-container__helper-text{
+  color: #77f;
+}
+
+.inputs-container__input:focus + .inputs-container__helper-text + .inputs-container__label{
+  color: #77f;
+}
+
+.inputs-container__input:disabled{
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.inputs-container__helper-text{
+    font-size: .8rem;
+    color: #6e6666;
+    order: 1;
+}
+
+.error{
+    color: #fa3a3a!important;
+    border-color: #fa3a3a!important;
+}
+
+.error:hover, .error--hover{
+    border-color: #000!important;
+}
+
+.error:focus, .error--focus{
+    border-color: #fa3a3a!important;
+}
+
+.start-icon{
+  font-size: 1.4rem;
+  position: absolute;
+  top: 40%;
+  left: 1%;
+}
+
+.end-icon{
+  font-size: 1.4rem;
+  position: absolute;
+  top: 40%;
+  right: 1%;
+}
+
+.sm{
+  padding: .5em 1.5rem;
+}
+
+.lg{
+  padding: 1.5em 1.5rem;
+}
+
+.full-width{
+  width: 100%;
+}
