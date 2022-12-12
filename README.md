@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://devchallenges-inputs.herokuapp.com">
+    <a href="https://devchallenges-inputs-lucasv7588.onrender.com">
       Demo
     </a>
     <span> | </span>
